@@ -1,5 +1,7 @@
 # Random Lunch Generator — A01 (LLM4Rec, HSE)
 
+**Live demo:** https://konstantinpatrushev.github.io/recsys_hw1/
+
 Fork of [dryjins/RecSys-LLMs/week1](https://github.com/dryjins/RecSys-LLMs/tree/main/week1) with the
 "icon sometimes not displaying" bug fixed.
 
