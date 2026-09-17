@@ -1,0 +1,96 @@
+{
+ "page": "experiment/improved_run1.html",
+ "css": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+ "total": 12,
+ "broken_count": 2,
+ "broken": [
+  "Salad",
+  "Sandwich"
+ ],
+ "rows": [
+  {
+   "name": "Pizza",
+   "icon": "fas fa-pizza-slice",
+   "content": "\"\"",
+   "width": 64,
+   "rendered": true
+  },
+  {
+   "name": "Sushi",
+   "icon": "fas fa-bowl-food",
+   "content": "\"\"",
+   "width": 64,
+   "rendered": true
+  },
+  {
+   "name": "Burger",
+   "icon": "fas fa-burger",
+   "content": "\"\"",
+   "width": 64,
+   "rendered": true
+  },
+  {
+   "name": "Salad",
+   "icon": "fas fa-bowl-salad",
+   "content": "none",
+   "width": 0,
+   "rendered": false
+  },
+  {
+   "name": "Tacos",
+   "icon": "fas fa-utensils",
+   "content": "\"\"",
+   "width": 56,
+   "rendered": true
+  },
+  {
+   "name": "Ramen",
+   "icon": "fas fa-bowl-food",
+   "content": "\"\"",
+   "width": 64,
+   "rendered": true
+  },
+  {
+   "name": "Sandwich",
+   "icon": "fas fa-sandwich",
+   "content": "none",
+   "width": 0,
+   "rendered": false
+  },
+  {
+   "name": "Pasta",
+   "icon": "fas fa-utensils",
+   "content": "\"\"",
+   "width": 56,
+   "rendered": true
+  },
+  {
+   "name": "Curry",
+   "icon": "fas fa-bowl-food",
+   "content": "\"\"",
+   "width": 64,
+   "rendered": true
+  },
+  {
+   "name": "Steak",
+   "icon": "fas fa-drumstick-bite",
+   "content": "\"\"",
+   "width": 64,
+   "rendered": true
+  },
+  {
+   "name": "Soup",
+   "icon": "fas fa-mug-hot",
+   "content": "\"\"",
+   "width": 64,
+   "rendered": true
+  },
+  {
+   "name": "BBQ",
+   "icon": "fas fa-fire",
+   "content": "\"\"",
+   "width": 56,
+   "rendered": true
+  }
+ ]
+}

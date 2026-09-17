@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>icon check</title>
+</head>
+<body>
+<!--
+  Usage (served over http, e.g. `python3 -m http.server` from hw1/):
+    tests/icon_check.html?page=index.html
+  Reads the menu items ({ name, icon }) from the target page source, loads the same
+  Font Awesome stylesheet the page uses, renders every icon and reports whether it
+  actually produces a glyph. Result is written as JSON into the result element below.
+-->
+<div id="stage"></div>
+<pre id="result">PENDING</pre>
+<script>
+(async () => {
+    const page = new URLSearchParams(location.search).get('page');
+    const src = await (await fetch('../' + page)).text();
+
+    const cssHref = src.match(/<link[^>]+href="([^"]*font-awesome[^"]*)"/)[1];
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = cssHref;
+    await new Promise((ok, fail) => { link.onload = ok; link.onerror = fail; document.head.appendChild(link); });
+
+    const items = [...src.matchAll(/name:\s*"([^"]+)",\s*icon:\s*"([^"]+)"/g)]
+        .map(m => ({ name: m[1], icon: m[2] }));
+
+    const stage = document.getElementById('stage');
+    const els = items.map(it => {
+        const el = document.createElement('i');
+        el.className = it.icon;
+        el.style.fontSize = '64px';
+        stage.appendChild(el);
+        return el;
+    });
+    await document.fonts.ready;
+    await new Promise(r => setTimeout(r, 300));
+
+    const rows = items.map((it, k) => {
+        const content = getComputedStyle(els[k], '::before').content;
+        const width = Math.round(els[k].getBoundingClientRect().width);
+        return { ...it, content, width, rendered: content !== 'none' && width > 0 };
+    });
+    const broken = rows.filter(r => !r.rendered).map(r => r.name);
+    document.getElementById('result').textContent = JSON.stringify({
+        page, css: cssHref, total: rows.length, broken_count: broken.length, broken, rows
+    }, null, 1);
+})().catch(e => { document.getElementById('result').textContent = 'ERROR ' + e; });
+</script>
+</body>
+</html>

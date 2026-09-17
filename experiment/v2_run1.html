@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Lunch Menu Recommender</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .result {
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .icon {
+            font-size: 80px;
+            color: #667eea;
+            margin-bottom: 15px;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .name {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            min-height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random Lunch Recommender</h1>
+        <div class="result">
+            <div class="icon" id="icon"></div>
+            <div class="name" id="name">Click the button to get started!</div>
+        </div>
+        <button id="generateBtn">Generate Lunch!</button>
+    </div>
+
+    <script>
+        const lunchMenu = [
+            { name: "Pizza", icon: "fas fa-pizza-slice" },
+            { name: "Sushi", icon: "fas fa-fish" },
+            { name: "Burger", icon: "fas fa-burger" },
+            { name: "Salad", icon: "fas fa-leaf" },
+            { name: "Tacos", icon: "fas fa-pepper-hot" },
+            { name: "Ramen", icon: "fas fa-bowl-rice" },
+            { name: "Sandwich", icon: "fas fa-bread-slice" },
+            { name: "Pasta", icon: "fas fa-plate-wheat" },
+            { name: "Curry", icon: "fas fa-fire" },
+            { name: "Steak", icon: "fas fa-drumstick-bite" },
+            { name: "Soup", icon: "fas fa-bowl-food" },
+            { name: "BBQ", icon: "fas fa-fire-burner" }
+        ];
+
+        function generateLunch() {
+            const randomIndex = Math.floor(Math.random() * lunchMenu.length);
+            const selectedItem = lunchMenu[randomIndex];
+
+            const iconElement = document.getElementById('icon');
+            const nameElement = document.getElementById('name');
+
+            iconElement.innerHTML = '<i class="' + selectedItem.icon + '"></i>';
+            nameElement.textContent = selectedItem.name;
+        }
+
+        document.getElementById('generateBtn').addEventListener('click', generateLunch);
+
+        // Generate a lunch item on page load for better UX
+        generateLunch();
+    </script>
+</body>
+</html>

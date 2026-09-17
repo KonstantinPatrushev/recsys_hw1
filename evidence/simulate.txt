@@ -1,0 +1,2 @@
+per-draw  empirical=0.2505  analytic=0.2500
+>=1 empty in 5 draws  empirical=0.7637  analytic=0.7627

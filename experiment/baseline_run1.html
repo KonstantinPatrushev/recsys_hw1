@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Lunch Menu Recommender</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 60px 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            color: #999;
+            margin-bottom: 50px;
+            font-size: 1.1em;
+        }
+
+        .button-container {
+            margin-bottom: 50px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: 600;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .result {
+            display: none;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .icon {
+            font-size: 5em;
+            color: #667eea;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .dish-name {
+            font-size: 2.5em;
+            color: #333;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .message {
+            font-size: 1.2em;
+            color: #999;
+            margin-top: 20px;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lunch Recommender</h1>
+        <p class="subtitle">Can't decide what to eat? Let me help!</p>
+
+        <div class="button-container">
+            <button id="generateBtn">Generate Lunch!</button>
+        </div>
+
+        <div class="result" id="result">
+            <i class="icon" id="icon"></i>
+            <div class="dish-name" id="dishName"></div>
+            <p class="message">That's your lunch suggestion today!</p>
+        </div>
+
+        <footer>
+            <p>Made with <i class="fas fa-heart" style="color: #e74c3c;"></i> for lunch lovers</p>
+        </footer>
+    </div>
+
+    <script>
+        const lunchMenu = [
+            { name: "Pizza", icon: "fas fa-pizza-slice" },
+            { name: "Sushi", icon: "fas fa-bowl-food" },
+            { name: "Burger", icon: "fas fa-burger" },
+            { name: "Salad", icon: "fas fa-leaf" },
+            { name: "Tacos", icon: "fas fa-taco" },
+            { name: "Ramen", icon: "fas fa-bowl-rice" },
+            { name: "Sandwich", icon: "fas fa-sandwich" },
+            { name: "Pasta", icon: "fas fa-pasta" },
+            { name: "Curry", icon: "fas fa-bowl-food" },
+            { name: "Steak", icon: "fas fa-meat" },
+            { name: "Soup", icon: "fas fa-bowl-hot" },
+            { name: "BBQ", icon: "fas fa-fire" }
+        ];
+
+        const generateBtn = document.getElementById('generateBtn');
+        const resultDiv = document.getElementById('result');
+        const iconElement = document.getElementById('icon');
+        const dishNameElement = document.getElementById('dishName');
+
+        generateBtn.addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * lunchMenu.length);
+            const selectedDish = lunchMenu[randomIndex];
+
+            iconElement.className = `icon ${selectedDish.icon}`;
+            dishNameElement.textContent = selectedDish.name;
+
+            resultDiv.classList.remove('show');
+            setTimeout(() => {
+                resultDiv.classList.add('show');
+            }, 10);
+        });
+    </script>
+</body>
+</html>

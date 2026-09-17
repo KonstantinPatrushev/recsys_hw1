@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Lunch Menu Recommender</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 60px 40px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 50px;
+            font-size: 1.1em;
+        }
+
+        .display-area {
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .icon {
+            font-size: 5em;
+            color: #667eea;
+            margin-bottom: 20px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dish-name {
+            font-size: 2em;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .initial-message {
+            color: #999;
+            font-size: 1.2em;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍽️ Lunch Recommender</h1>
+        <p class="subtitle">Can't decide what to eat?</p>
+
+        <div class="display-area">
+            <div class="icon" id="icon"></div>
+            <div id="result">
+                <p class="initial-message">Click the button to get a recommendation!</p>
+            </div>
+        </div>
+
+        <button onclick="generateLunch()">Generate Lunch!</button>
+    </div>
+
+    <script>
+        const lunchMenu = [
+            { name: "Pizza", icon: "fas fa-pizza-slice" },
+            { name: "Sushi", icon: "fas fa-fish" },
+            { name: "Burger", icon: "fas fa-burger" },
+            { name: "Salad", icon: "fas fa-leaf" },
+            { name: "Tacos", icon: "fas fa-pepper-hot" },
+            { name: "Ramen", icon: "fas fa-bowl-rice" },
+            { name: "Sandwich", icon: "fas fa-bread-slice" },
+            { name: "Pasta", icon: "fas fa-plate-wheat" },
+            { name: "Curry", icon: "fas fa-fire" },
+            { name: "Steak", icon: "fas fa-drumstick-bite" },
+            { name: "Soup", icon: "fas fa-bowl-food" },
+            { name: "BBQ", icon: "fas fa-fire-burner" }
+        ];
+
+        function generateLunch() {
+            const randomIndex = Math.floor(Math.random() * lunchMenu.length);
+            const selectedDish = lunchMenu[randomIndex];
+
+            const iconElement = document.getElementById('icon');
+            const resultElement = document.getElementById('result');
+
+            iconElement.innerHTML = `<i class="${selectedDish.icon}"></i>`;
+            resultElement.innerHTML = `<div class="dish-name">${selectedDish.name}</div>`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+Write the code for a random lunch menu recommender as a single index.html (HTML + CSS + JS inline) that I will publish on GitHub Pages.
+A "Generate Lunch!" button picks a random item from a lunchMenu array with Math.floor(Math.random() * lunchMenu.length) and shows its name and icon.
+Each item is written as { name: "Pizza", icon: "fas fa-pizza-slice" }.
+Icons: load exactly Font Awesome Free 6.4.0 from https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css.
+Choose every icon ONLY from this list of class names verified to exist in Font Awesome Free 6.4.0 Solid (do not use any name outside it, even if you believe it exists): fa-pizza-slice, fa-fish, fa-burger, fa-hotdog, fa-leaf, fa-carrot, fa-apple-whole, fa-lemon, fa-pepper-hot, fa-bowl-food, fa-bowl-rice, fa-plate-wheat, fa-bread-slice, fa-cheese, fa-egg, fa-drumstick-bite, fa-bacon, fa-shrimp, fa-fire, fa-fire-burner, fa-mug-hot, fa-utensils, fa-spoon, fa-cookie, fa-ice-cream, fa-stroopwafel.
+Icons outside this list (many food icons are Pro-only, e.g. fa-bowl-hot, fa-sandwich, fa-salad) render as an empty box.
+The menu must contain exactly these 12 dishes: Pizza, Sushi, Burger, Salad, Tacos, Ramen, Sandwich, Pasta, Curry, Steak, Soup, BBQ.

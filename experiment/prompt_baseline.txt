@@ -1,0 +1,4 @@
+Write the code for a random lunch menu recommender as a single index.html (HTML + CSS + JS inline) that I will publish on GitHub Pages.
+A "Generate Lunch!" button picks a random item from a lunchMenu array with Math.floor(Math.random() * lunchMenu.length) and shows its name and a Font Awesome icon (load Font Awesome 6.4.0 from https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css).
+Each item is written as { name: "Pizza", icon: "fas fa-pizza-slice" }.
+The menu must contain exactly these 12 dishes: Pizza, Sushi, Burger, Salad, Tacos, Ramen, Sandwich, Pasta, Curry, Steak, Soup, BBQ.
